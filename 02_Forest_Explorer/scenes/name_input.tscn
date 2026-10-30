@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/name_input.gd" id="1_script"]
+
+[node name="NameInput" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.09, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.63, 0.82, 1)
+theme_override_font_sizes/font_size = 12
+text = "Forest Explorer"
+horizontal_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="Center/VBox"]
+layout_mode = 2
+placeholder_text = "Введите имя"
+alignment = 1
+max_length = 12
+
+[node name="StartButton" type="Button" parent="Center/VBox"]
+layout_mode = 2
+text = "Начать игру"
+
+[node name="ErrorLabel" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45, 0.45, 1)
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Center/VBox/StartButton" to="." method="_on_start_pressed"]
